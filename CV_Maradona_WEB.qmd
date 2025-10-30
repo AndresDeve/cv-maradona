@@ -1,0 +1,332 @@
+---
+page-layout: full
+format:
+  html:
+    theme: [cosmo]
+    toc: false
+    smooth-scroll: true
+    css: styles-cv-web.css   # podés dejarlo; el bloque <style> de abajo agrega ajustes mínimos
+    fontsize: 1.02rem
+lang: es
+execute:
+  enabled: false
+---
+```{=html}
+<!-- ====== HERO ====== -->
+<div class="card hero-min">
+  <div class="hero-grid-min">
+    <div class="photo-min">
+      <img src="assets/maradona.jpg" alt="Diego Armando Maradona" />
+    </div>
+    <div class="title-min">
+      <h1>Diego Armando Maradona</h1>
+      <p class="subtitle-min">Futbolista profesional · Director técnico · Conductor</p>
+      <hr class="hero-divider-min"/>
+      <p class="lead-min">
+        Capitán histórico y referente del fútbol mundial. Campeón del Mundo 1986 con la Selección Argentina.
+        Trayectoria destacada en Napoli, Barcelona, Boca Juniors y Argentinos Juniors. Experiencia como DT de la
+        Selección Argentina y conductor televisivo.
+      </p>
+    </div>
+  </div>
+</div>
+```
+::: {#cv .cv-grid-min}
+
+::: {.card .sidebar-min}
+### Contacto
+- 📞 +54 9 11 1234567  
+- ✉️ d10s@gmail.com  
+- 🌐 [www.D10S.com](https://www.d10s.com){target="_blank" rel="noopener"}
+
+### Idiomas
+- **Español:** lengua madre  
+- **Italiano:** C1
+
+### Sobre mí
+Perfil con liderazgo dentro y fuera de la cancha. Creativo, influyente y con amplia experiencia en
+alto rendimiento, gestión de planteles, representación internacional y comunicación mediática.
+:::
+
+::: {.card .main-min}
+## Experiencia profesional destacada
+
+- **2008–2010 — Selección Argentina (DT).** Conducción en Eliminatorias y Mundial FIFA 2010.  
+- **2005 — “La Noche del 10” (Canal 13).** Conductor y anfitrión con invitados internacionales.  
+- **1984–1991 — Napoli (Italia).** Capitán y líder. 2 ligas (1987, 1990), Copa Italia (1987), Copa UEFA (1989).  
+- **1982–1984 — FC Barcelona (España).** Campeón de Copa del Rey y Copa de la Liga.  
+- **1977–1994 — Selección Argentina (Jugador).** Campeón Mundial 1986; subcampeón 1990; +90 partidos.  
+- **1981–1982 — Boca Juniors (Argentina).** Campeón Metropolitano 1981.  
+- **1976–1981 — Argentinos Juniors (Argentina).** Debut profesional y máximo goleador de torneos locales.
+
+## Educación y formación
+- **1998–1999 — AFA.** Curso de dirección técnica.  
+- **1969–1976 — Escuela de Fútbol Argentinos Juniors.** Formación juvenil.
+
+## Capacidades relacionales y organizativas
+Liderazgo y capitanía de equipos. Comunicación carismática en medios y eventos públicos.
+Mentoría de jóvenes talentos.
+
+## Competencias técnicas
+Estrategia y táctica futbolística. Gestión de alto rendimiento. Representación internacional y manejo de prensa.
+Docencia futbolística y clínicas deportivas.
+:::
+
+:::
+
+
+```{=html}
+<div class="gallery-card">
+  <h3>Galería de logros</h3>
+  <p class="gallery-intro">
+    Una selección de imágenes que resumen los logros conseguidos.
+  </p>
+
+  <div class="photo-grid">
+    <img src="assets/maradona_mexico86.jpg" alt="Maradona en México 1986">
+    <img src="assets/maradona_napoli.jpg" alt="Maradona en Napoli">
+    <img src="assets/maradona_barcelona.jpg" alt="Maradona en Barcelona">
+    <img src="assets/maradona_boca.jpg" alt="Maradona en Boca Juniors">
+    <img src="assets/maradona_dt.jpg" alt="Maradona Director Técnico">
+    <img src="assets/maradona_tribuna.jpg" alt="Maradona saludando al público">
+  </div>
+</div>
+```
+
+<style>
+/* ====== Minimal, profesional, consistente con cards ====== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&family=Quicksand:wght@500;600&display=swap');
+
+:root {
+  --ink: #16181b;
+  --muted: #6b7280;
+  --brand: #0EA5A8;
+  --line: #e7eef2;
+}
+
+body {
+  color: var(--ink);
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* ====== HERO CARD ====== */
+.hero-min {
+  padding: 1.1rem;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+}
+
+.hero-grid-min {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 1rem;
+  align-items: center;
+}
+
+.photo-min img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.10);
+}
+
+.title-min h1 {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.4px;
+  font-size: 2.5em;        
+  color: #0b4749;           
+}
+
+.subtitle-min {
+  margin: 0.15rem 0 0.5rem;
+  color: #147c7f;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.hero-divider-min {
+  border: 0;
+  height: 2px;
+  background: var(--brand);
+  width: 110px;
+  margin: 0.2rem 0 0.6rem;
+}
+
+.lead-min {
+  margin: 0;
+  color: #374151;
+  font-family: 'Inter', sans-serif;
+  line-height: 1.5;
+}
+
+/* ====== GRID PRINCIPAL ====== */
+.cv-grid-min {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.sidebar-min {
+  background: #fbfdfe;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 1rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.sidebar-min h3 {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 600;
+  color: var(--brand);
+}
+
+.main-min {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 1rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.main-min h2 {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 600;
+  color: var(--brand);
+  margin-top: 0.2rem;
+}
+
+.main-min p,
+.sidebar-min p,
+.sidebar-min li {
+  color: #2b2b2b;
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+}
+
+.main-min strong {
+  font-weight: 600;
+}
+
+/* ====== BULLETS ====== */
+.main-min ul {
+  margin: 0 0 0.6rem 1.1rem;
+}
+.main-min li {
+  margin: 0.25rem 0;
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 900px) {
+  .hero-grid-min {
+    grid-template-columns: 100px 1fr;
+  }
+  .photo-min img {
+    width: 100px;
+    height: 100px;
+  }
+  .cv-grid-min {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ====== GALERÍA ICÓNICA ====== */
+.gallery-card {
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 1.2rem;
+  margin-top: 1.5rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+}
+
+.gallery-card h3 {
+  font-family: 'Quicksand', sans-serif;
+  color: var(--brand);
+  font-weight: 600;
+  margin-top: 0;
+}
+
+.gallery-intro {
+  font-family: 'Inter', sans-serif;
+  color: #444;
+  margin-bottom: 1rem;
+}
+
+/* Grid: 2 columnas × 3 filas */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  position: relative;
+  overflow: visible; /* 👈 Permite que las imágenes salgan de los bordes */
+}
+
+/* Cada celda */
+.photo-grid figure {
+  position: relative;
+  border-radius: 10px;
+  margin: 0;
+  z-index: 0;
+  transition: z-index 0.2s ease;
+}
+
+/* Imagen con proporción natural */
+.photo-grid img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.45s ease, box-shadow 0.3s ease;
+  cursor: zoom-in;
+  will-change: transform;
+}
+
+/* Hover: aumento sin recorte */
+.photo-grid img:hover {
+  transform: scale(1.2);
+  z-index: 10;
+  position: relative;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+}
+
+/* En pantallas chicas → 1 columna */
+@media (max-width: 700px) {
+  .photo-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+:root {
+  --brand-start: #74C2E1;  /* celeste argentino */
+  --brand-end: #FFD76F;    /* dorado bandera del sol */
+  --ink: #1c1c1c;
+}
+body {
+  background: linear-gradient(145deg, var(--brand-start) 0%, var(--brand-end) 90%);
+}
+.card,
+.sidebar-min,
+.main-min,
+.gallery-card {
+  background: rgba(255, 255, 255, 0.90); /* 👈 0.85 = slight transparency */
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8px); /* ✨ soft glassy effect */
+  -webkit-backdrop-filter: blur(8px);
+}
+</style>
