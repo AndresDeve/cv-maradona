@@ -662,8 +662,6 @@ const TL_EVENTS = [
       <p class="meta"><strong>${ev.year}</strong>${ev.place?` · ${ev.place}`:''}</p>
       <p>${ev.desc || ''}</p>
     `;
-    // scroll al elemento
-    li.scrollIntoView({behavior:'smooth', inline:'center', block:'nearest'});
   }
 
   // Drag-to-scroll (desktop y táctil)
