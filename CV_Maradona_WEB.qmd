@@ -5,8 +5,11 @@ format:
     theme: [cosmo]
     toc: false
     smooth-scroll: true
-    css: styles-cv-web.css   # podés dejarlo; el bloque <style> de abajo agrega ajustes mínimos
+    css: styles-cv-web.css
     fontsize: 1.02rem
+    anchor-sections: false
+    include-after-body: 
+      - assets/js/script.js
 lang: es
 execute:
   enabled: false
@@ -31,17 +34,36 @@ execute:
   </div>
 </div>
 ```
+
+```{=html}
+<!-- ====== CARD DE ESTADÍSTICAS ====== -->
+<div class="stats-card">
+  <div class="stat">
+    <h2>704</h2>
+    <p>Partidos jugados</p>
+  </div>
+  <div class="stat">
+    <h2>359</h2>
+    <p>Goles</p>
+  </div>
+  <div class="stat">
+    <h2>258</h2>
+    <p>Asistencias</p>
+  </div>
+</div>
+```
+
 ::: {#cv .cv-grid-min}
 
 ::: {.card .sidebar-min}
 ### Contacto
-- 📞 +54 9 11 1234567  
-- ✉️ d10s@gmail.com  
-- 🌐 [www.D10S.com](https://www.d10s.com){target="_blank" rel="noopener"}
++54 9 11 1234567  
+d10s@gmail.com  
+[www.D10S.com](https://www.d10s.com){target="_blank" rel="noopener"}
 
 ### Idiomas
-- **Español:** lengua madre  
-- **Italiano:** C1
+**Español:** lengua madre  
+**Italiano:** C1
 
 ### Sobre mí
 Perfil con liderazgo dentro y fuera de la cancha. Creativo, influyente y con amplia experiencia en
@@ -74,12 +96,31 @@ Docencia futbolística y clínicas deportivas.
 
 :::
 
+```{=html}
+<!-- ====== LÍNEA DE TIEMPO (INTERACTIVA) ====== -->
+<section class="timeline-card" id="maradona-timeline" aria-label="Línea de tiempo de hitos de la carrera">
+  <header class="timeline-head">
+    <h3>Hitos de la carrera</h3>
+    <p class="muted">Explorá hitos clave: tocá o hacé clic sobre cada punto para ver más.</p>
+  </header>
+
+  <!-- Riel desplazable -->
+  <div class="timeline-viewport" id="tlViewport">
+    <ol class="timeline-rail" id="tlRail" role="list"></ol>
+  </div>
+
+  <!-- Panel de detalle -->
+  <div class="timeline-detail" id="tlDetail" aria-live="polite">
+    <div class="empty">Seleccioná un hito para ver el detalle.</div>
+  </div>
+</section>
+```
 
 ```{=html}
 <div class="gallery-card">
-  <h3>Galería de logros</h3>
+  <h3>Trayectoria en imágenes</h3>
   <p class="gallery-intro">
-    Una selección de imágenes que resumen los logros conseguidos.
+    Una selección de imágenes que resumen mi trayectoria y logros conseguidos.
   </p>
 
   <div class="photo-grid">
@@ -328,5 +369,172 @@ body {
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(8px); /* ✨ soft glassy effect */
   -webkit-backdrop-filter: blur(8px);
+}
+
+/* ====== CARD DE ESTADÍSTICAS ====== */
+.stats-card {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 1.2rem 1rem;
+  margin: 1rem 0;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.4rem;
+  color: var(--brand);
+  margin: 0;
+  line-height: 1.1;
+}
+
+.stat p {
+  font-family: 'Inter', sans-serif;
+  color: #333;
+  font-size: 1rem;
+  margin-top: 0.3rem;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .stats-card {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  .stat h2 {
+    font-size: 2rem;
+  }
+}
+
+/* ====== Timeline ====== */
+.timeline-card{
+  background: rgba(255,255,255,0.9);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 1.0rem;
+  margin-top: 1rem;
+  box-shadow: 0 4px 14px rgba(0,0,0,.05);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.timeline-head h3{
+  font-family: 'Quicksand', sans-serif;
+  color: var(--brand);
+  margin: .2rem 0 .1rem;
+}
+.timeline-head .muted{
+  color:#555; margin:0;
+  font-family:'Inter',sans-serif; font-size:.95rem;
+}
+
+.timeline-viewport{
+  overflow: auto;
+  padding: .5rem 8px;          /* un poco más de padding lateral */
+  cursor: grab;
+}
+.timeline-viewport:active { cursor: grabbing; }
+
+/* ---- Riel: FLEX + línea contínua por ::before ---- */
+.timeline-rail{
+  position: relative;
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  margin: .5rem 0 0;
+  padding: 1rem 0 1rem;        /* sin border-top: la línea la dibuja ::before */
+}
+.timeline-rail::before{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;                     /* cubre todo el ancho real del riel */
+  top: 10px;                   /* altura de la línea (ajustable) */
+  height:2px;
+  background: var(--brand);
+}
+
+/* ---- Ítems ---- */
+.timeline-item{
+  position: relative;
+  padding-top: .8rem;
+  text-align: center;
+  font-family:'Inter',sans-serif;
+  min-width: 200px;            /* evita que el texto quede “apretado” */
+}
+
+/* Punto centrado sobre la línea */
+.timeline-dot{
+  width:14px; height:14px;
+  border:3px solid #fff;
+  border-radius:50%;
+  background: var(--brand);
+  position: absolute;
+  top: 10px;                   /* mismo top que la línea ::before */
+  left: 50%;
+  transform: translate(-50%, -50%);  /* centra el punto sobre la línea */
+  box-shadow: 0 0 0 2px var(--brand);
+}
+
+/* Tarjeta clickeable del hito */
+.timeline-btn{
+  display: inline-block;
+  margin-top:.45rem;
+  background: #fff;
+  border:1px solid var(--line);
+  border-radius: 10px;
+  padding:.55rem .6rem;
+  width: 100%;
+  box-shadow: 0 2px 8px rgba(0,0,0,.05);
+  transition: transform .1s ease, box-shadow .2s ease;
+  text-align:left;
+
+  /* ✅ textos largos no se salen */
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.timeline-btn:focus-visible { outline: 3px solid #a7e3e5; }
+.timeline-btn:hover{ transform: translateY(-2px); box-shadow:0 6px 16px rgba(0,0,0,.1); }
+
+.tl-year{ font-weight:700; color:#0b4749; font-family:'Montserrat',sans-serif; }
+.tl-title{ display:block; color:#333; margin-top:.15rem; }
+.tl-tag{
+  display:inline-block; margin-top:.35rem; font-size:.78rem; color:#0b4749;
+  background: rgba(14,165,168,.10); border:1px solid rgba(14,165,168,.25);
+  padding:.12rem .4rem; border-radius: 999px;
+}
+
+/* Panel detalle */
+.timeline-detail{
+  margin-top: .8rem;
+  border-top:1px dashed var(--line);
+  padding-top:.8rem;
+  min-height: 64px;
+}
+.timeline-detail .empty{ color:#555; font-style: italic; }
+.timeline-detail h4{
+  margin:.2rem 0; color:#0b4749; font-family:'Montserrat',sans-serif;
+}
+.timeline-detail .meta{ color:#444; margin:0; }
+.timeline-detail p{ margin:.4rem 0 0; color:#2b2b2b; }
+
+/* Etiquetas por tipo */
+.tl--club  .timeline-dot{ background:#1976D2; box-shadow:0 0 0 2px #1976D2; }
+.tl--intl  .timeline-dot{ background:#16A34A; box-shadow:0 0 0 2px #16A34A; }
+.tl--award .timeline-dot{ background:#F59E0B; box-shadow:0 0 0 2px #F59E0B; }
+
+/* Responsive */
+@media (max-width: 700px){
+  .timeline-item{ min-width: 75vw; }  /* facilita swipe en móviles */
 }
 </style>
