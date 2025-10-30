@@ -59,7 +59,7 @@ execute:
 ### Contacto
 +54 9 11 1234567  
 d10s@gmail.com  
-[www.D10S.com](https://www.d10s.com){target="_blank" rel="noopener"}
+[www.D10S.com](https://es.wikipedia.org/wiki/La_mano_de_Dios){target="_blank" rel="noopener"}
 
 ### Idiomas
 **Español:** lengua madre  
