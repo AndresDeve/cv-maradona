@@ -15,6 +15,12 @@ execute:
   enabled: false
 ---
 ```{=html}
+<head>
+  <title>CV de Diego Armando Maradona — Mejorá Tu CV</title>
+</head>
+```
+
+```{=html}
 <!-- ====== HERO ====== -->
 <div class="card hero-min">
   <div class="hero-grid-min">
