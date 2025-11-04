@@ -128,3 +128,35 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('resize', syncLine);
 });
 </script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const btnPDF = document.getElementById("btnDownload");
+  const btnCopy = document.getElementById("btnCopy");
+
+  // Descargar PDF
+  btnPDF?.addEventListener("click", e => {
+    e.preventDefault();
+    document.documentElement.classList.add("print-mode");
+    window.print();
+    setTimeout(() => document.documentElement.classList.remove("print-mode"), 1000);
+  });
+
+  // Copiar enlace al portapapeles
+  btnCopy?.addEventListener("click", async e => {
+    e.preventDefault();
+    try {
+      await navigator.clipboard.writeText(window.location.href);
+      alert("🔗 Enlace copiado al portapapeles");
+    } catch {
+      const tmp = document.createElement("input");
+      tmp.value = window.location.href;
+      document.body.appendChild(tmp);
+      tmp.select();
+      document.execCommand("copy");
+      document.body.removeChild(tmp);
+      alert("🔗 Enlace copiado al portapapeles");
+    }
+  });
+});
+</script>

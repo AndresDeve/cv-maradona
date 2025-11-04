@@ -49,6 +49,33 @@ ul.task-list li input[type="checkbox"] {
 
   <title>CV de Diego Armando Maradona — Mejorá Tu CV</title>
 
+<div class="no-print">
+<header class="cv-header">
+  <div class="cv-header-left">
+    <!-- Espacio libre o para logo -->
+  </div>
+  <div class="cv-header-right">
+    <a href="#" id="btnDownload" aria-label="Descargar PDF">
+      <i class="bi bi-file-earmark-pdf-fill"></i>
+    </a>
+    <a href="#" id="btnCopy" aria-label="Copiar enlace del CV web">
+      <i class="bi bi-link-45deg"></i>
+    </a>
+    <a href="https://github.com/" target="_blank" aria-label="GitHub">
+      <i class="bi bi-github"></i>
+    </a>
+    <a href="https://linkedin.com/" target="_blank" aria-label="LinkedIn">
+      <i class="bi bi-linkedin"></i>
+    </a>
+    <a href="https://pinterest.com/" target="_blank" aria-label="Pinterest">
+      <i class="bi bi-pinterest"></i>
+    </a>
+    <a href="mailto:d10s@gmail.com" aria-label="Email">
+      <i class="bi bi-envelope-fill"></i>
+    </a>
+  </div>
+</header>
+</div>
 <!-- ====== HERO ====== -->
 <div class="card hero-min">
   <div class="hero-grid-min">
@@ -137,6 +164,7 @@ d10s@gmail.com<br>
 </section>
 </div>
 </div>
+<div class="no-print">
 <!-- ====== LÍNEA DE TIEMPO (INTERACTIVA) ====== -->
 <section class="timeline-card" id="maradona-timeline" aria-label="Línea de tiempo de hitos de la carrera">
   <header class="timeline-head">
@@ -154,6 +182,8 @@ d10s@gmail.com<br>
     <div class="empty">Seleccioná un hito para ver el detalle.</div>
   </div>
 </section>
+</div>
+<div class="no-print">
 <div class="gallery-card">
   <h3>Trayectoria en imágenes</h3>
   <p class="gallery-intro">
@@ -168,6 +198,7 @@ d10s@gmail.com<br>
     <img src="assets/maradona_dt.jpg" alt="Maradona Director Técnico">
     <img src="assets/maradona_tribuna.jpg" alt="Maradona saludando al público">
   </div>
+</div>
 </div>
 
 <style>
@@ -210,8 +241,8 @@ a:hover {
 }
 
 .photo-min img {
-  width: 150px;
-  height: 150px;
+  width: 165px;
+  height: 165px;
   object-fit: cover;
   border-radius: 12px;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.10);
@@ -573,6 +604,108 @@ body {
 @media (max-width: 700px){
   .timeline-item{ min-width: 75vw; }  /* facilita swipe en móviles */
 }
+
+/* ===== HEADER ICONOS SUPERIORES ===== */
+.cv-header {
+  display: flex;
+  justify-content: flex-end; /* alinea los iconos a la derecha */
+  align-items: center;
+  padding: 0rem 0.3rem;
+  background: transparent; /* sin fondo */
+  box-shadow: none;         /* sin sombra */
+  border: none;
+  margin-bottom: 0.5rem;
+}
+
+.cv-header-right a {
+  color: rgba(255,255,255,0.8);          /* verde principal */
+  margin-left: 0.1rem;       /* espacio entre íconos */
+  text-decoration: none;
+  font-size: 1.3rem;       /* tamaño de íconos */
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.cv-header-right a:hover {
+  color: #0b4749;          /* verde más oscuro en hover */
+  transform: translateY(-2px);
+}
+
+/* En pantallas chicas centramos los iconos */
+@media (max-width: 700px) {
+  .cv-header {
+    justify-content: center;
+    padding: 0.4rem 0;
+  }
+  .cv-header-right a {
+    margin-left: 0.8rem;
+    font-size: 1.4rem;
+  }
+}
+
+/* === Ocultar bloques .no-print al imprimir (Chrome, etc.) === */
+@media print {
+  .no-print,
+  .no-print * {
+    display: none !important;
+  }
+
+  /* Limpieza de estilos que ensucian el PDF */
+  body {
+    background: #fff !important;       /* quita degradados */
+    -webkit-print-color-adjust: exact;  /* conserva colores cuando corresponde */
+    print-color-adjust: exact;
+  }
+
+  /* Sugerencias de márgenes/paginado */
+  @page { margin: 14mm; }
+}
+
+/* ===== Imprimir sin “delimitar” las cards ===== */
+@media print {
+  /* Fondo limpio y colores fieles */
+  body { background: #fff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  @page { margin: 14mm; }
+
+  /* Quitar bordes/sombras/fondos de contenedores tipo card */
+  .card,
+  .sidebar-min,
+  .main-min,
+  .gallery-card,
+  .stats-card,
+  .timeline-card {
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  /* Mantener el padding (estructura) pero sin líneas ni fondos internos */
+  .card * {
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  /* Títulos y texto legibles en blanco y negro (opcional) */
+  .main-min h2,
+  .sidebar-min h3,
+  .timeline-head h3 { color: #000 !important; }
+
+  /* Evitar cortes feos dentro de bloques */
+  .card,
+  .sidebar-min,
+  .main-min,
+  .gallery-card,
+  .stats-card,
+  .timeline-card,
+  h2, h3 {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Seguí ocultando lo no imprimible */
+  .no-print, .no-print * { display: none !important; }
+}
 </style>
 
 </main>
@@ -705,6 +838,38 @@ document.addEventListener('DOMContentLoaded', () => {
   syncLine();
   new ResizeObserver(syncLine).observe(rail);
   window.addEventListener('resize', syncLine);
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const btnPDF = document.getElementById("btnDownload");
+  const btnCopy = document.getElementById("btnCopy");
+
+  // Descargar PDF
+  btnPDF?.addEventListener("click", e => {
+    e.preventDefault();
+    document.documentElement.classList.add("print-mode");
+    window.print();
+    setTimeout(() => document.documentElement.classList.remove("print-mode"), 1000);
+  });
+
+  // Copiar enlace al portapapeles
+  btnCopy?.addEventListener("click", async e => {
+    e.preventDefault();
+    try {
+      await navigator.clipboard.writeText(window.location.href);
+      alert("🔗 Enlace copiado al portapapeles");
+    } catch {
+      const tmp = document.createElement("input");
+      tmp.value = window.location.href;
+      document.body.appendChild(tmp);
+      tmp.select();
+      document.execCommand("copy");
+      document.body.removeChild(tmp);
+      alert("🔗 Enlace copiado al portapapeles");
+    }
+  });
 });
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
