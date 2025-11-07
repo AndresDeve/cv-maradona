@@ -11,6 +11,9 @@ format:
     anchor-sections: false
     include-after-body: 
       - assets/js/script.js
+    include-in-header:
+      text: |
+        <link rel="icon" href="assets/logo_icon.png" type="image/png">
 lang: es
 execute:
   enabled: false
