@@ -1,5 +1,6 @@
 ---
 page-layout: full
+pagetitle: "D10S - Ejemplo CV WEB 1"
 format:
   html:
     theme: [cosmo]
