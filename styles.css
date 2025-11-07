@@ -1,0 +1,292 @@
+/* ==================== BASE & TIPOGRAFÍAS ==================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&family=Quicksand:wght@500;600&display=swap');
+
+:root{
+  --ink: #1c1c1c;
+  --muted: #6b7280;
+  --brand: #0EA5A8;
+  --rule: #BFD8E6;        
+  --bg-pastel: white;   
+  --petroleo: #10666a;    
+}
+
+
+html, body{
+  color: var(--ink);
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--bg-pastel);
+  margin: 0;
+}
+
+a { text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ==================== HEADER ICONOS SUPERIORES ==================== */
+.cv-header{
+  display:flex; justify-content:flex-end; align-items:center;
+  padding: .3rem 0; background: transparent; border:0; box-shadow:none;
+}
+.cv-header-right a{
+  color: #13888d !important;
+  margin-left: .1rem; font-size: 1.3rem;
+  transition: filter .2s ease, transform .2s ease;
+  text-decoration: none;
+}
+.cv-header-right a:hover,
+.cv-header-right a:focus{
+  color: #0EA5A8 !important;
+  filter: brightness(2);
+  transform: translateY(-1px);
+}
+.cv-header-right a:focus-visible{
+  outline: 2px solid #a7e3e5; outline-offset: 3px;
+}
+@media (max-width:700px){
+  .cv-header{ justify-content:center; padding:.4rem 0; }
+  .cv-header-right a{ font-size:1.2rem; margin-left:.6rem; }
+}
+
+/* ==================== HERO (foto izq, texto der, sin bordes) ==================== */
+.hero-min{
+  display:flex; align-items:center; gap:1.6rem;
+  padding:1.2rem 1rem; background:transparent !important; border:0 !important; box-shadow:none !important;
+}
+.hero-grid-min{ display:flex; flex-direction:row; align-items:center; gap:1.6rem; }
+
+/* Foto ×1.2 (165 → 198) */
+.photo-min img{
+  width:230px; height:230px; object-fit:cover;
+  border-radius: 6px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.10);
+}
+
+/* Bloque de texto */
+.title-min{ flex:1; display:flex; flex-direction:column; justify-content:center; min-width:0; }
+.title-min h1{
+  margin:0; font-family:'Montserrat',sans-serif; font-weight:600; font-size:2.6rem; color: #10666a;
+}
+.subtitle-min{
+  margin:.25rem 0 .5rem; font-family:'Inter',sans-serif; font-weight:500; font-size:1.05rem; color: #10666a;
+}
+.hero-divider-min{
+  border:none; height:2px; background: #10666a;
+  width:110px; margin:.3rem 0 .7rem;
+}
+.lead-min{ margin:0; color:#2b2b2b; line-height:1.5; }
+
+@media (max-width:700px){
+  .hero-min, .hero-grid-min{ flex-direction:column; text-align:center; }
+  .photo-min img{ width:150px; height:150px; }
+}
+
+/* ==================== GRID PRINCIPAL ==================== */
+.cv-grid-min{
+  display:grid; grid-template-columns:300px 1fr; gap:1rem; margin-top:1rem;
+}
+@media (max-width:900px){ .cv-grid-min{ grid-template-columns:1fr; } }
+
+/* ==================== ESTRUCTURA DE SECCIONES ==================== */
+/* Quitamos aspecto “card”: todo plano, sin cajas */
+.card, .sidebar-min, .main-min, .gallery-card, .timeline-card, .stats-card{
+  background:transparent !important; border:0 !important; box-shadow:none !important;
+  backdrop-filter:none !important; -webkit-backdrop-filter:none !important;
+}
+
+/* Separadores dentro de cada columna */
+.main-min > * + *, .sidebar-min > * + *{
+  border-top:1px solid var(--rule);
+  margin-top:.9rem; padding-top:.9rem;
+}
+
+.sidebar-min h3,
+.main-min h2{
+  font-family:'Quicksand',sans-serif; font-weight:600; color: #10666a;
+  margin:.2rem 0 .2rem;
+}
+.main-min p, .sidebar-min p, .sidebar-min li{
+  color:#2b2b2b; line-height:1.6;
+}
+.main-min ul{ margin:0 0 .6rem 1.1rem; }
+.main-min li{ margin:.25rem 0; }
+
+/* ==================== STATS (discretas, sin marco) ==================== */
+.stats-card{
+  display:flex; justify-content:space-around; align-items:center;
+  padding:.6rem 0; margin:.8rem 0 1rem;
+}
+.stat{ text-align:center; }
+.stat h2{
+  font-family:'Montserrat',sans-serif; font-size:1.8rem; color: #13888d; margin:0; line-height:1.1;
+}
+.stat p{ font-size:.9rem; margin:.2rem 0 0; color:#333; }
+
+/* ==================== GALERÍA ==================== */
+.gallery-card{ margin-top:1.2rem !important; padding-top:1rem !important; border-top:1px solid #13888d !important; }
+.gallery-card h3{ font-family:'Quicksand',sans-serif; color:#13888d !important; font-weight:600; margin-top:0; }
+.gallery-intro{ color:#444; margin-bottom:1rem; }
+.photo-grid{
+  display:grid; grid-template-columns:repeat(2,1fr); gap:1rem; position:relative; overflow:visible;
+}
+.photo-grid img{
+  width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:10px;
+  transition: transform .45s ease, box-shadow .3s ease; cursor:zoom-in;
+}
+.photo-grid img:hover{ transform:scale(1.05); box-shadow:0 12px 28px rgba(0,0,0,.25); position:relative; z-index:10; }
+@media (max-width:700px){ .photo-grid{ grid-template-columns:1fr; } }
+
+/* ==================== TIMELINE (plano) ==================== */
+.timeline-card{ margin-top:1rem !important; padding-top:1rem !important; border-top:1px solid #10666a !important; }
+.timeline-head h3{ font-family:'Quicksand',sans-serif; color:#10666a; margin:.2rem 0 .1rem; }
+.timeline-head .muted{ color:#555; margin:0; font-size:.95rem; }
+.timeline-viewport{ overflow:auto; padding:.5rem 8px; cursor:grab; }
+.timeline-viewport:active{ cursor:grabbing; }
+.timeline-rail{ position:relative; display:flex; gap:1.5rem; list-style:none; margin:.5rem 0 0; padding:1rem 0 1rem; }
+.timeline-rail::before{ content:""; position:absolute; left:0; right:0; top:10px; height:2px; background: var(--brand); }
+.timeline-item{ position:relative; padding-top:.8rem; text-align:center; min-width:200px; }
+.timeline-dot{
+  width:14px; height:14px; border:3px solid #fff; border-radius:50%;
+  background: var(--brand); position:absolute; top:10px; left:50%; transform:translate(-50%,-50%);
+  box-shadow:0 0 0 2px var(--brand);
+}
+.timeline-btn{
+  display:inline-block; margin-top:.45rem; background:#fff0; border:1px solid var(--rule);
+  border-radius:10px; padding:.55rem .6rem; width:100%; transition:transform .1s ease, box-shadow .2s ease;
+  text-align:left; white-space:normal; overflow-wrap:anywhere; word-break:break-word;
+}
+.timeline-btn:hover{ transform:translateY(-2px); box-shadow:0 6px 16px rgba(0,0,0,.06); }
+.tl-year{ font-weight:700; color: var(--petroleo); font-family:'Montserrat',sans-serif; }
+.tl-title{ display:block; color:#333; margin-top:.15rem; }
+.tl-tag{
+  display:inline-block; margin-top:.35rem; font-size:.78rem; color: var(--petroleo);
+  background: rgba(14,165,168,.10); border:1px solid rgba(14,165,168,.25);
+  padding:.12rem .4rem; border-radius:999px;
+}
+.timeline-detail{ margin-top:.8rem; border-top:1px dashed var(--rule); padding-top:.8rem; min-height:64px; }
+.timeline-detail .empty{ color:#555; font-style:italic; }
+.timeline-detail h4{ margin:.2rem 0; color: var(--petroleo); font-family:'Montserrat',sans-serif; }
+
+/* === Forzar fondo pastel sobre tema Quarto/Bootstrap === */
+:root{
+  --bg-pastel: #EEF2F5
+;           /* tu gris azulado pastel */
+  --petroleo: #0b4749;            /* títulos/iconos */
+}
+
+/* Aumentamos especificidad y usamos también background-color */
+html, body, :root body, .quarto-light body, body.quarto-light {
+  background: var(--bg-pastel) !important;
+  background-color: var(--bg-pastel) !important;
+}
+
+/* Si usás modo oscuro y querés el mismo fondo, descomenta: */
+/*
+.quarto-dark body, body.quarto-dark {
+  background: var(--bg-pastel) !important;
+  background-color: var(--bg-pastel) !important;
+}
+*/
+
+/* Iconos del header: forzar color en <a> y en <i> dentro del <a> */
+.cv-header-right a,
+.cv-header-right a i {
+  color: var(--petroleo) !important;
+}
+.cv-header-right a:hover,
+.cv-header-right a:hover i,
+.cv-header-right a:focus,
+.cv-header-right a:focus i {
+  color: var(--petroleo) !important;
+  filter: brightness(1.15);
+  transform: translateY(-1px);
+}
+
+/* Héroe / stats ya “planos”: asegurar que nada del tema les meta fondo */
+.hero-min,
+.stats-card {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+/* ======== IMPRESIÓN (versión final con fondo blanco y respeto a .no-print) ======== */
+@media print {
+
+  /* 1️⃣ — Oculta correctamente los elementos no imprimibles */
+  .no-print,
+  .no-print * {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  /* 2️⃣ — Fuerza fondo blanco global */
+  :root { --bg-pastel: #ffffff !important; }
+
+  html, body,
+  .quarto-light body, body.quarto-light,
+  .quarto-dark body,  body.quarto-dark,
+  .page-columns, .content, main, .container-fluid {
+    background: #fff !important;
+    background-color: #fff !important;
+    background-image: none !important;
+  }
+
+  /* 3️⃣ — Quita fondos residuales en cualquier elemento o pseudo-elemento */
+  body * {
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+  }
+  *::before, *::after {
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+  }
+
+  /* 4️⃣ — Limpieza de bordes y sombras */
+  .card, .sidebar-min, .main-min, .gallery-card, .stats-card, .timeline-card {
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+  }
+
+  /* 5️⃣ — Texto en negro */
+  .main-min h2,
+  .sidebar-min h3,
+  .timeline-head h3 {
+    color: #000 !important;
+  }
+
+  /* 6️⃣ — Evita cortes feos entre bloques */
+  .card,
+  .sidebar-min,
+  .main-min,
+  .gallery-card,
+  .stats-card,
+  .timeline-card,
+  h2, h3 {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* 7️⃣ — Márgenes de página */
+  @page {
+    margin: 14mm;
+  }
+
+  /* 8️⃣ — Ajuste de impresión para colores y precisión */
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  
+}
+/* ===== Reducir tamaño de foto solo en PDF/impresión ===== */
+@media print {
+  .photo-min img {
+    width: 180px !important;   /* antes ~132px en pantalla */
+    height: 180px !important;
+    object-fit: cover;
+    border-radius: 6px;
+    box-shadow: none !important; /* más limpio en PDF */
+  }
+}
